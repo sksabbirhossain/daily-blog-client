@@ -1,9 +1,20 @@
+import { ADD_BLOG } from "../actionTypes/actionTypes";
+
 const initialState = {
-  text: "text",
+  title: "",
+  description: "",
 };
 
 const blogReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case ADD_BLOG:
+      return {
+        ...state,
+        [action.payload.name]: action.payload.value,
+      };
+    default:
+      return state;
+  }
 };
 
 export default blogReducer;
