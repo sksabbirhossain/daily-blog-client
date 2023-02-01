@@ -2,6 +2,7 @@ import { ADD_BLOG } from "../actionTypes/actionTypes";
 
 const initialState = {
   title: "",
+  category: "",
   description: "",
 };
 

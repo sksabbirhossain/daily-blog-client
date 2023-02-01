@@ -1,6 +1,7 @@
+import { composeWithDevTools } from "@redux-devtools/extension";
 import { createStore } from "redux";
-import blogReducer from "./reducers/blogReducer";
+import rootReducer from "./reducers/routeReducer";
 
-const store = createStore(blogReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;

@@ -6,12 +6,12 @@ import { ADD_BLOG } from "../redux/actionTypes/actionTypes";
 
 const AddBlog = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.addBlog);
   const navigate = useNavigate();
   const submit = (e) => {
     e.preventDefault();
     // console.log(state.title);
-    fetch("http://localhost:5000/api/add-blog", {
+    fetch("https://server-eight-sooty.vercel.app/api/add-blog", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +46,23 @@ const AddBlog = () => {
                   type="text"
                   className="form-control"
                   name="title"
+                  placeholder="title"
+                  onChange={(e) =>
+                    dispatch({
+                      type: ADD_BLOG,
+                      payload: { name: e.target.name, value: e.target.value },
+                    })
+                  }
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputEmail1" className="form-label">
+                  Category
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="category"
                   placeholder="title"
                   onChange={(e) =>
                     dispatch({
