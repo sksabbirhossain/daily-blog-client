@@ -8,12 +8,19 @@ const Card = ({ blog }) => {
       <div className="card-body">
         <h5 className="card-title">{blog.title}</h5>
         <p className="card-text">{blog.description}</p>
-        <Link to="/" class="card-link">
-          <BsFillPencilFill />
-        </Link>
-        <Link to="/" class="card-link">
-          <BsFillTrashFill />
-        </Link>
+        <div className="d-flex justify-content-between align-items-center">
+          <div>
+            <Link to={`/blog-details/${blog._id}`}>Read More..</Link>
+          </div>
+          <div>
+            <Link to="/" class="card-link">
+              <BsFillPencilFill />
+            </Link>
+            <Link to="/" class="card-link">
+              <BsFillTrashFill />
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
